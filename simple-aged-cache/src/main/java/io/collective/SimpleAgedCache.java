@@ -136,6 +136,7 @@ public class SimpleAgedCache {
             ExpireableEntry currenEntry = currentNode.entry;
 
             if(currenEntry.expirationTime < this.clock.millis()){
+                this.store[currenEntry.hash] = null;
                 this.queue.Pop();
                 this.count--;
             }
